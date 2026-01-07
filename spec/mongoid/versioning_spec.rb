@@ -302,7 +302,7 @@ describe Mongoid::Versioning do
         context "when only updated_at was changed" do
 
           before do
-            page.update_attributes(updated_at: Time.now)
+            page.update(updated_at: Time.now)
           end
 
           it "does not generate another version" do
@@ -395,7 +395,7 @@ describe Mongoid::Versioning do
           before do
             2.times do
               5.times do |n|
-                WikiPage.find(page.id).update_attributes(title: "#{n}")
+                WikiPage.find(page.id).update(title: "#{n}")
               end
             end
           end

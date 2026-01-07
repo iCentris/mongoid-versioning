@@ -39,7 +39,7 @@ You may skip versioning at any point in time by wrapping the persistence call in
 
 ```ruby
 person.versionless do |doc|
-  doc.update_attributes(name: "Theodore")
+  doc.update(name: "Theodore")
 end
 ```
 
