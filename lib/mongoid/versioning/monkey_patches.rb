@@ -26,11 +26,11 @@ end
 module Mongoid
   module Association
     # Add versioned? method to association metadata
-    class Relatable
+    module Relatable
       def versioned?
         !!options[:versioned]
       end
-    end if defined?(Mongoid::Association::Relatable)
+    end
   end
 end
 
