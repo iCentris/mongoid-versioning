@@ -147,10 +147,10 @@ module Mongoid
     # @since 2.0.0
     def previous_revision
       _loading_revision do
-        self.class.unscoped.
-          with(self.mongo_client.options).
-          where(_id: id).
-          any_of({ version: version }, { version: nil }).first
+        self.class.unscoped.with(self.mongo_client.options) do |klass|
+          klass.where(_id: id).
+            any_of({ version: version }, { version: nil }).first
+        end
       end
     end
 
