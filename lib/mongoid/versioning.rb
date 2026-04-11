@@ -19,8 +19,7 @@ module Mongoid
         class_name: self.name,
         validate: false,
         cyclic: true,
-        inverse_of: nil,
-        versioned: true
+        inverse_of: nil
 
       set_callback :save, :before, :revise, if: :revisable?
 
